@@ -1,0 +1,126 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 60px 30px;
+    color: white;
+    margin: 30px;
+    width: 100%;
+    max-width: 35rem;
+    min-height: 45rem;
+    background: #2e2f33;
+    border-radius: 15px;
+}
+
+.LogoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: .6rem;
+}
+
+.LogoContainer span {
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.ButtonsContainer {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+.ButtonsContainer button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.FormContainer {
+    position: relative;
+}
+
+.FormBox {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.8rem;
+    flex-direction: column;
+}
+
+.FormBox input[type='text'] {
+    outline: unset;
+    border: unset;
+    font-weight: 600;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    padding: 20px;
+    border-radius: 20px;
+    height: 40px;
+    width: 60%;
+}
+
+.FormBox input:focus {
+    border: 2px solid #1ed760;
+}
+
+.CheckBox{
+    width: 60%;
+    align-items: flex-start;
+
+}
+
+label {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+input[type='checkbox'] {
+    position: relative;
+    opacity: 0;
+    left: 12px;
+}
+
+.InputCheck {
+    position: relative;
+    display: inline-block;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.InputCheck:before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 5px;
+    top: 5px;
+    left: 5px;
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+    transform: scale(0) rotate(0deg);
+    transition: .2s;
+}
+
+input:checked ~ .InputCheck::before {
+    transform: scale(1) rotate(-50deg);
+}
+
+input:checked ~ .InputCheck {
+    background: #3498db;
+}
+
+
+.FormBox button {
+    width: 60%;
+}
