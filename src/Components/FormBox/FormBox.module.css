@@ -1,4 +1,5 @@
 .Container {
+    position: relative;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -12,9 +13,34 @@
     border-radius: 15px;
 }
 
+.Container::after{
+    position: absolute;
+    content: '';
+    max-width: 35rem;
+    width: 100%;
+    top:0;
+    right: -35rem;
+    background: #E0E0E0;
+    height: 100%;
+    z-index: 10;
+}
+
+.Container::before{
+    position: absolute;
+    content: '';
+    max-width: 35rem;
+    width: 100%;
+    top:0;
+    left: -35rem;
+    background: #E0E0E0;
+    height: 100%;
+    z-index: 10;
+}
+
 .LogoContainer {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
     width: 100%;
     gap: .6rem;
@@ -30,20 +56,68 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 2rem;
     width: 100%;
+    z-index: 10;
 }
 
-.ButtonsContainer button {
+
+.InButton,.UpButton{
     background: none;
     border: none;
     color: white;
     font-size: 1rem;
     font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: .2s;
+}
+.checked{
+    border-bottom: 2px solid #1ed760;
+    transition: .2s;
 }
 
-.FormContainer {
-    position: relative;
+.LoginContainer {
+    position: absolute;
+    opacity: 1;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-40%);
+    width: 100%;
+    transition: .5s;
+}
+
+.LoginContainerHidden{
+    position: absolute;
+    opacity: 1;
+    pointer-events: none;
+    left: 50%;
+    top:50%;
+    transform: translate(-150%,-40%);
+    width: 100%;
+    transition: .5s;
+}
+
+.RegisterContainer {
+    position: absolute;
+    opacity: 1;
+    right: 50%;
+    top:50%;
+    transform: translate(50%,-40%);
+    width: 100%;
+    transition: .5s;
+
+}
+
+.RegisterContainerHidden{
+    position: absolute;
+    opacity: 1;
+    pointer-events: none;
+    right: 50%;
+    top:50%;
+    transform: translate(150%,-40%);
+    width: 100%;
+    transition: .5s;
 }
 
 .FormBox {
@@ -55,7 +129,7 @@
     flex-direction: column;
 }
 
-.FormBox input[type='text'] {
+.FormBox input[type='text'],input[type='password'] {
     outline: unset;
     border: unset;
     font-weight: 600;
@@ -67,8 +141,47 @@
     width: 60%;
 }
 
-.FormBox input:focus {
+.SignInButton{
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    outline: unset;
+    border: unset;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    box-sizing: border-box;
+    background: #1ab451;
+    border: 2px solid #1ab451;
+    padding: 20px;
+    border-radius: 20px;
+    height: 40px;
+    width: 60%;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.SignInButton:hover{
+    background: #1ed760;
     border: 2px solid #1ed760;
+}
+
+.Forgot{
+    all: unset;
+    width: fit-content;
+    font-weight: 500;
+    color: #99999b;
+    cursor: pointer;
+}
+
+.FormBox input{
+    transition: .3s;
+}
+
+.FormBox input:focus {
+    border: 2px solid #1ab451;
 }
 
 .CheckBox{
@@ -78,15 +191,21 @@
 }
 
 label {
+    pointer-events: none;
+    width: fit-content;
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
 }
 
 input[type='checkbox'] {
     position: relative;
+    transform: scale(2);
     opacity: 0;
     left: 12px;
+    top:2px;
+    pointer-events: all;
 }
 
 .InputCheck {
@@ -120,7 +239,54 @@ input:checked ~ .InputCheck {
     background: #3498db;
 }
 
+@media screen and (max-width:302px){
 
-.FormBox button {
-    width: 60%;
+    .LoginContainer {
+        position: absolute;
+        opacity: 1;
+        left: 50%;
+        top:60%;
+        transform: translate(-50%,-40%);
+        width: 100%;
+        transition: .5s;
+    }
+
+    .LoginContainerHidden{
+        position: absolute;
+        opacity: 1;
+        pointer-events: none;
+        left: 50%;
+        top:60%;
+        transform: translate(-150%,-40%);
+        width: 100%;
+        transition: .5s;
+    }
+
+    .RegisterContainer {
+        position: absolute;
+        opacity: 1;
+        right: 50%;
+        top:60%;
+        transform: translate(50%,-40%);
+        width: 100%;
+        transition: .5s;
+
+    }
+
+    .RegisterContainerHidden{
+        position: absolute;
+        opacity: 1;
+        pointer-events: none;
+        right: 50%;
+        top:60%;
+        transform: translate(150%,-40%);
+        width: 100%;
+        transition: .5s;
+    }
+
+    label {
+        justify-content: center;
+        gap: 5px;
+    }
 }
+
