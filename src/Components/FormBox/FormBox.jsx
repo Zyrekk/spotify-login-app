@@ -31,8 +31,7 @@ const FormBox=()=>{
                     <input type="password" placeholder="Password"/>
                     <div className={styles.CheckBox}>
                         <label>
-                            <input type='checkbox' onClick={()=>{
-                                console.log("CLICK")}}/>
+                            <input type='checkbox'/>
                             <span className={styles.InputCheck}/>
                             Stay signed in
                         </label>
@@ -48,8 +47,7 @@ const FormBox=()=>{
                     <input type="password" placeholder="Password"/>
                     <div className={styles.CheckBox}>
                         <label>
-                            <input type='checkbox' onClick={()=>{
-                                console.log("CLICK")}}/>
+                            <input type='checkbox'/>
                             <span className={styles.InputCheck}/>
                             Accept terms & privacy
                         </label>
