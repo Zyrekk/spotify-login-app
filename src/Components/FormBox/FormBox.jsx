@@ -29,8 +29,8 @@ const FormBox = () => {
             </div>
             <form className={signType === 'login' ? styles.LoginContainer : styles.LoginContainerHidden}>
                 <div className={styles.FormBox}>
-                    <input type="text" placeholder="Username"/>
-                    <input type="password" placeholder="Password"/>
+                    <input type="text" placeholder="Username" maxLength={30} required/>
+                    <input type="password" placeholder="Password" maxLength={30} required/>
                     <div className={styles.CheckBox}>
                         <label>
                             <input type='checkbox'/>
@@ -38,9 +38,7 @@ const FormBox = () => {
                             Stay signed in
                         </label>
                     </div>
-                    <button type="submit" className={styles.SignInButton} onClick={(event) => {
-                        event.preventDefault()
-                    }}>SIGN IN
+                    <button type="submit" className={styles.SignInButton}>SIGN IN
                     </button>
                     <button className={styles.Forgot} onClick={(event) => {
                         event.preventDefault()
@@ -50,9 +48,9 @@ const FormBox = () => {
             </form>
             <form className={signType !== 'login' ? styles.RegisterContainer : styles.RegisterContainerHidden}>
                 <div className={styles.FormBox}>
-                    <input type="text" placeholder="Username"/>
-                    <input type="text" placeholder="Email"/>
-                    <input type="password" placeholder="Password"/>
+                    <input type="text" placeholder="Username" maxLength={30} required/>
+                    <input type="text" placeholder="Email" maxLength={30} required/>
+                    <input type="password" placeholder="Password" maxLength={30} required/>
                     <div className={styles.CheckBox}>
                         <label>
                             <input type='checkbox'/>
@@ -60,9 +58,7 @@ const FormBox = () => {
                             Accept terms & privacy
                         </label>
                     </div>
-                    <button type="submit" className={styles.SignInButton} onClick={(event) => {
-                        event.preventDefault()
-                    }}>SIGN UP
+                    <button type="submit" className={styles.SignInButton}>SIGN UP
                     </button>
                 </div>
             </form>
